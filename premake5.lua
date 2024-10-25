@@ -2,6 +2,7 @@ workspace "Lang"
     architecture "x64"
     configurations { "Debug", "Release" }
     startproject "Lang"
+    version = "v1.0.0"
 
 project "Lang"
     location "build"
@@ -9,8 +10,8 @@ project "Lang"
     language "C++"
     cppdialect "C++17"
     
-    targetdir "bin/%{cfg.buildcfg}"
-    objdir "bin-int/%{cfg.buildcfg}"
+    targetdir ("dist/" .. _ACTION .. "/%{prj.name}/%{cfg.buildcfg}-%{cfg.platform}-%{cfg.architecture}/" .. version)
+    objdir ("build/" .. _ACTION .. "/%{prj.name}/%{cfg.buildcfg}-%{cfg.platform}-%{cfg.architecture}/" .. version)
 
     files {
         "src/**.cpp",
